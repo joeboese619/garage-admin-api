@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.boesenet</groupId>
+  <artifactId>raml-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>raml-demo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+      <dependency>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>javax.ws.rs-api</artifactId>
+          <version>2.0</version>
+      </dependency>
+    <!-- https://mvnrepository.com/artifact/org.raml.plugins/jaxrs-raml-maven-plugin -->
+    <dependency>
+      <groupId>org.raml.plugins</groupId>
+      <artifactId>jaxrs-raml-maven-plugin</artifactId>
+      <version>1.3.4</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.raml.plugins</groupId>
+            <artifactId>raml-jaxrs-maven-plugin</artifactId>
+            <version>1.3.4</version>
+            <configuration>
+                <sourceDirectory>${basedir}/src/main/api</sourceDirectory>
+                <basePackageName>org.boesenet</basePackageName>
+                <jaxrsVersion>2.0</jaxrsVersion>
+                <useJsr303Annotations>false</useJsr303Annotations>
+                <jsonMapper>jackson2</jsonMapper>
+                <removeOldOutput>true</removeOldOutput>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+
+</project>
