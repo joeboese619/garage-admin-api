@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.boesenet</groupId>
-  <artifactId>raml-demo</artifactId>
+  <artifactId>garage-admin-api</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>raml-demo</name>
+  <name>garage-admin-api</name>
   <url>http://maven.apache.org</url>
 
   <properties>
